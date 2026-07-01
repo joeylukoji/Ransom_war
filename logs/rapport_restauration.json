@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "nom": "memo.docx",
+    "operation": "pdf_vers_word",
+    "chemin_source": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.pdf",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.docx",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.pdf",
+    "chemin_docx": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.docx",
+    "succes": true,
+    "message": "Conversion PDF -> Word réussie",
+    "date": "2026-07-01T15:13:45"
+  },
+  {
+    "nom": "notes.docx",
+    "operation": "pdf_vers_word",
+    "chemin_source": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.pdf",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.docx",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.pdf",
+    "chemin_docx": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.docx",
+    "succes": true,
+    "message": "Conversion PDF -> Word réussie",
+    "date": "2026-07-01T15:13:45"
+  },
+  {
+    "nom": "rapport.docx",
+    "operation": "pdf_vers_word",
+    "chemin_source": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.pdf",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.docx",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.pdf",
+    "chemin_docx": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.docx",
+    "succes": true,
+    "message": "Conversion PDF -> Word réussie",
+    "date": "2026-07-01T15:13:45"
+  }
+]

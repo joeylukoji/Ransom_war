@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "nom": "memo.docx",
+    "operation": "word_vers_pdf",
+    "chemin_origine": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.docx",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.pdf",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\memo.pdf",
+    "taille_octets": 1433,
+    "succes": true,
+    "message": "Conversion Word -> PDF réussie",
+    "date": "2026-07-01T15:13:34"
+  },
+  {
+    "nom": "notes.docx",
+    "operation": "word_vers_pdf",
+    "chemin_origine": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.docx",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.pdf",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\notes.pdf",
+    "taille_octets": 1434,
+    "succes": true,
+    "message": "Conversion Word -> PDF réussie",
+    "date": "2026-07-01T15:13:39"
+  },
+  {
+    "nom": "rapport.docx",
+    "operation": "word_vers_pdf",
+    "chemin_origine": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.docx",
+    "chemin_resultat": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.pdf",
+    "chemin_pdf": "C:\\Users\\Joy\\Desktop\\examen_maintenance\\projet_virus_antivirus\\fichiers\\rapport.pdf",
+    "taille_octets": 1436,
+    "succes": true,
+    "message": "Conversion Word -> PDF réussie",
+    "date": "2026-07-01T15:13:43"
+  }
+]

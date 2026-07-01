@@ -18,4 +18,8 @@ class LecteurJournal:
         if not isinstance(donnees, list):
             raise ValueError("Le journal doit être une liste JSON.")
 
-        return [e for e in donnees if JournalVirus.entree_valide(e)]
+        valides = [e for e in donnees if JournalVirus.entree_valide(e)]
+        ignores = len(donnees) - len(valides)
+        if ignores:
+            print(f"{ignores} entrée(s) ignorée(s) (incomplète ou échouée).")
+        return valides

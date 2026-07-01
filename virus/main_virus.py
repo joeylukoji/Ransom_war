@@ -3,51 +3,36 @@ import argparse
 import os
 import sys
 
-TEST_ROOT = os.path.expanduser("~/test_virus_antivirus")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-def valider_environnement():
-    test_root = os.path.realpath(TEST_ROOT)
-    if test_root not in os.path.realpath(os.getcwd()):
-        print(f"ERREUR : exécuter depuis {test_root}")
-        sys.exit(1)
-    print(f"Environnement OK : {test_root}")
+from config import chemin_log, dossier_fichiers, valider_racine
+from virus.explorateur import Explorateur
+from virus.convertisseur import Convertisseur
+from virus.journal_virus import JournalVirus
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--root", default=TEST_ROOT)
+    parser.add_argument("--root", default=None, help="Défaut : fichiers/")
     parser.add_argument("--log", default=None)
     args = parser.parse_args()
 
-    valider_environnement()
-    projet = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    sys.path.insert(0, projet)
-
-    from virus.explorateur import Explorateur
-    from virus.convertisseur import Convertisseur
-    from virus.journal_virus import JournalVirus
-
-    racine = os.path.realpath(os.path.expanduser(args.root))
-    if os.path.realpath(TEST_ROOT) not in racine:
-        print("ERREUR : --root doit être dans le répertoire de test.")
-        sys.exit(1)
-
-    log = args.log or os.path.join(projet, "logs", "virus_log.json")
+    racine = valider_racine(args.root or dossier_fichiers())
+    log = os.path.abspath(args.log or chemin_log("virus_log.json"))
     journal = JournalVirus(log)
-    convertisseur = Convertisseur()
 
     for chemin in Explorateur().collecter_fichiers_word(racine):
         nom = os.path.basename(chemin)
         try:
-            pdf = convertisseur.convertir_en_pdf(chemin)
-            journal.ajouter(chemin, pdf)
-            print(f"OK  {nom} -> {os.path.basename(pdf)}")
+            pdf = Convertisseur().convertir_en_pdf(chemin)
+            journal.ajouter(chemin, pdf, True, "Conversion Word -> PDF réussie")
+            print(f"OK  {nom} -> {pdf}")
         except Exception as e:
+            journal.ajouter(chemin, None, False, str(e))
             print(f"ERR {nom} : {e}")
 
     journal.sauvegarder()
-    print(f"Journal : {log} ({len(journal.entrees)} entrée(s))")
+    print(f"Journal enregistré : {log} ({len(journal.entrees)} entrée(s))")
 
 
 if __name__ == "__main__":

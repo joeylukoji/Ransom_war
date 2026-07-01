@@ -1,10 +1,7 @@
 import os
-import shutil
 import zipfile
 
-TEST_ROOT = os.path.expanduser("~/test_virus_antivirus")
-PROJECT_SRC = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DEST = os.path.join(TEST_ROOT, "projet_virus_antivirus")
+from config import dossier_fichiers, dossier_projet
 
 DOC_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
@@ -22,18 +19,16 @@ def creer_docx(chemin: str, texte: str) -> None:
 
 
 if __name__ == "__main__":
+    racine = dossier_fichiers()
     for nom, texte in [
-        ("Documents/rapport.docx", "Rapport"),
-        ("Documents/notes.docx", "Notes"),
-        ("Bureau/memo.docx", "Memo"),
+        ("rapport.docx", "Rapport"),
+        ("notes.docx", "Notes"),
+        ("memo.docx", "Memo"),
     ]:
-        creer_docx(os.path.join(TEST_ROOT, nom), texte)
+        creer_docx(os.path.join(racine, nom), texte)
 
-    if os.path.normpath(PROJECT_SRC) != os.path.normpath(PROJECT_DEST):
-        shutil.copytree(
-            PROJECT_SRC, PROJECT_DEST, dirs_exist_ok=True,
-            ignore=shutil.ignore_patterns("__pycache__", ".git", ".pytest_cache"),
-        )
-
-    print(f"Pret. cd {PROJECT_DEST}")
-    print(f"python virus/main_virus.py --root {TEST_ROOT}")
+    os.makedirs(os.path.join(dossier_projet(), "logs"), exist_ok=True)
+    print(f"Dossier fichiers : {racine}")
+    print(f"cd {dossier_projet()}")
+    print("python virus/main_virus.py")
+    print("python antivirus/main_antivirus.py")
